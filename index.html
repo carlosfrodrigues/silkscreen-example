@@ -14,14 +14,14 @@
             }
 
             function handleTouchStart(evt) {
-                // evt.preventDefault();
+                evt.preventDefault();
                 const firstTouch = getTouches(evt)[0];
                 xDown = firstTouch.clientX;
                 yDown = firstTouch.clientY;
             }
 
             function handleTouchMove(evt) {
-                // evt.preventDefault();
+                evt.preventDefault();
                 if (!xDown || !yDown) {
                     return;
                 }
@@ -47,9 +47,9 @@
                 }
                 if (!(Math.abs(xDiff) > Math.abs(yDiff))) {
                     if (yDiff > 0) {
-                        document.getElementById("rd" + (parseInt(selectorId.substring(2)) - 1)).checked = true;
-                    } else {
                         document.getElementById("rd" + (parseInt(selectorId.substring(2)) + 1)).checked = true;
+                    } else {
+                        document.getElementById("rd" + (parseInt(selectorId.substring(2)) - 1)).checked = true;
                     }
                 }
                 xDown = null;
